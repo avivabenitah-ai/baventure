@@ -19,12 +19,22 @@
     .hero p { color: #666; font-size: 1.1rem; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; padding: 2rem 4rem 6rem; }
     .card { background: white; border-radius: 16px; padding: 2rem; cursor: pointer; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-4px); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
     .tag { display: inline-block; background: #f0ebff; color: #6b2fff; font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 50px; margin-bottom: 1rem; text-transform: uppercase; }
     .card h2 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.4; }
     .card p { color: #666; font-size: 0.9rem; line-height: 1.6; }
     .date { color: #aaa; font-size: 0.8rem; margin-top: 1rem; }
     .loading { text-align: center; padding: 4rem; color: #666; }
+    #article-view { display: none; max-width: 760px; margin: 4rem auto; padding: 0 2rem 6rem; }
+    #article-view h1 { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+    #article-view .meta { color: #aaa; font-size: 0.85rem; margin-bottom: 2rem; }
+    #article-view .content { font-size: 1rem; line-height: 1.8; color: #333; }
+    #article-view .content h2 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; margin: 2rem 0 1rem; color: #1a1a1a; }
+    #article-view .content h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #1a1a1a; }
+    #article-view .content p { margin-bottom: 1rem; }
+    #article-view .content strong { font-weight: 600; color: #1a1a1a; }
+    .back-btn { display: inline-block; margin: 2rem 0; color: #6b2fff; font-weight: 600; cursor: pointer; background: none; border: none; font-size: 1rem; font-family: 'Inter', sans-serif; }
+    .back-btn:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -32,19 +42,34 @@
     <div class="logo">Aviva <span>Benitah</span></div>
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/#services">Services</a></li>
+      <li><a href="/">Services</a></li>
       <li><a href="/blog.html">Blog</a></li>
-      <li><a href="/#contact" class="btn">Let's Talk</a></li>
+      <li><a href="https://calendly.com/avivabnt/30min" target="_blank" class="btn">Let's Talk</a></li>
     </ul>
   </nav>
-  <div class="hero">
-    <h1>Blog</h1>
-    <p>SEO tips, startup strategies & small business visibility</p>
+
+  <div id="blog-list">
+    <div class="hero">
+      <h1>Blog</h1>
+      <p>SEO tips, startup strategies & small business visibility</p>
+    </div>
+    <div class="grid" id="posts">
+      <div class="loading">Loading articles...</div>
+    </div>
   </div>
-  <div class="grid" id="posts">
-    <div class="loading">Loading articles...</div>
+
+  <div id="article-view">
+    <button class="back-btn" onclick="showList()">← Back to Blog</button>
+    <span class="tag" id="art-tag"></span>
+    <h1 id="art-title"></h1>
+    <div class="meta" id="art-date"></div>
+    <div class="content" id="art-content"></div>
+    <button class="back-btn" onclick="showList()">← Back to Blog</button>
   </div>
+
   <script>
+    let allPosts = [];
+
     async function loadPosts() {
       try {
         const res = await fetch('https://api.github.com/repos/avivabenitah-ai/baventure/contents/_posts');
@@ -55,14 +80,50 @@
         for (const file of files.reverse()) {
           const r = await fetch(file.download_url);
           const text = await r.text();
-          const title = text.match(/title:\s*"?(.+)"?/)?.[1] || file.name;
-          const desc = text.match(/description:\s*"?(.+)"?/)?.[1] || '';
-          const cat = text.match(/category:\s*"?(.+)"?/)?.[1] || '';
-          const date = text.match(/date:\s*(.+)/)?.[1]?.substring(0,10) || '';
-          grid.innerHTML += `<div class="card"><span class="tag">${cat}</span><h2>${title}</h2><p>${desc}</p><div class="date">${date}</div></div>`;
+          const title = text.match(/title:\s*"?([^"\n]+)"?/)?.[1] || file.name;
+          const desc = text.match(/description:\s*"?([^"\n]+)"?/)?.[1] || '';
+          const cat = text.match(/category:\s*"?([^"\n]+)"?/)?.[1] || '';
+          const date = text.match(/date:\s*([^\n]+)/)?.[1]?.substring(0,10) || '';
+          const body = text.split('---').slice(2).join('---').trim();
+          allPosts.push({ title, desc, cat, date, body });
+          const idx = allPosts.length - 1;
+          grid.innerHTML += `
+            <div class="card" onclick="showArticle(${idx})">
+              <span class="tag">${cat}</span>
+              <h2>${title}</h2>
+              <p>${desc}</p>
+              <div class="date">${date}</div>
+            </div>`;
         }
-      } catch(e) { document.getElementById('posts').innerHTML = '<div class="loading">Error loading articles.</div>'; }
+      } catch(e) {
+        document.getElementById('posts').innerHTML = '<div class="loading">Error loading articles.</div>';
+      }
     }
+
+    function showArticle(idx) {
+      const post = allPosts[idx];
+      document.getElementById('art-tag').textContent = post.cat;
+      document.getElementById('art-title').textContent = post.title;
+      document.getElementById('art-date').textContent = post.date;
+      let html = post.body;
+      html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+      html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+      html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color:#6b2fff;">$1</a>');
+      html = html.replace(/\n\n+/g, '</p><p>');
+      html = '<p>' + html + '</p>';
+      document.getElementById('art-content').innerHTML = html;
+      document.getElementById('blog-list').style.display = 'none';
+      document.getElementById('article-view').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    function showList() {
+      document.getElementById('blog-list').style.display = 'block';
+      document.getElementById('article-view').style.display = 'none';
+      window.scrollTo(0, 0);
+    }
+
     loadPosts();
   </script>
 </body>
