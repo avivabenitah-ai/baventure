@@ -520,169 +520,6 @@
   }
   .cta-section .btn-primary:hover { opacity: 0.95; }
 
-  /* ─── BLOG ─── */
-  .blog-hero {
-    background: linear-gradient(135deg, #0F0A1E 0%, #1E1040 100%);
-    padding: 80px 6%;
-    text-align: center;
-  }
-  .blog-hero .section-eyebrow { color: #C4B5FD; }
-  .blog-hero .section-title { color: #fff; margin: 0 auto 12px; }
-  .blog-hero .section-sub { color: #A78BFA; margin: 0 auto; }
-
-  .blog-section { max-width: 1200px; margin: 0 auto; padding: 64px 6%; }
-  .blog-featured { margin-bottom: 48px; }
-  .blog-feat-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--white);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-  }
-  .blog-feat-img {
-    background: linear-gradient(135deg, #EDE9FE, #C4B5FD);
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-  }
-  .blog-feat-content { padding: 40px 36px; }
-  .blog-feat-content h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.7rem;
-    font-weight: 800;
-    color: var(--dark);
-    line-height: 1.2;
-    margin: 12px 0 14px;
-  }
-  .blog-feat-content p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
-  .blog-meta { display: flex; gap: 10px; font-size: 0.82rem; color: var(--text-muted); flex-wrap: wrap; }
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .blog-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .blog-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-  .blog-card-img {
-    height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    background: linear-gradient(135deg, #EDE9FE, #C4B5FD);
-  }
-  .blog-card-body { padding: 22px 20px; }
-  .blog-card-body h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1.3;
-    margin: 10px 0 8px;
-  }
-  .blog-card-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
-  .read-more {
-    font-size: 0.83rem;
-    font-weight: 600;
-    color: var(--violet);
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .read-more:hover { text-decoration: underline; }
-
-  /* ─── NEWSLETTER ─── */
-  .newsletter-section {
-    background: var(--dark);
-    padding: 64px 6%;
-    text-align: center;
-  }
-  .newsletter-section h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 12px;
-  }
-  .newsletter-section p { color: rgba(255,255,255,0.6); margin-bottom: 28px; }
-  .newsletter-form {
-    display: flex;
-    gap: 12px;
-    max-width: 440px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .newsletter-form input {
-    flex: 1;
-    min-width: 220px;
-    padding: 13px 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.08);
-    color: #fff;
-    font-size: 0.95rem;
-    outline: none;
-  }
-  .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
-  .newsletter-form input:focus { border-color: var(--violet-mid); }
-  .newsletter-form button {
-    padding: 13px 24px;
-    border-radius: 10px;
-    background: var(--gradient);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.9rem;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-  .newsletter-form button:hover { opacity: 0.9; }
-
-  /* ─── SINGLE POST ─── */
-  .post-content h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin: 32px 0 12px;
-  }
-  .post-content h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin: 24px 0 10px;
-  }
-  .post-content p { margin-bottom: 18px; }
-  .post-content ul, .post-content ol {
-    padding-left: 24px;
-    margin-bottom: 18px;
-    color: var(--text-muted);
-  }
-  .post-content li { margin-bottom: 8px; line-height: 1.7; }
-  .post-content a { color: var(--violet); text-decoration: underline; }
-  .post-content blockquote {
-    border-left: 3px solid var(--violet);
-    padding: 12px 20px;
-    background: var(--violet-light);
-    border-radius: 0 8px 8px 0;
-    margin: 24px 0;
-    font-style: italic;
-    color: var(--text);
-  }
-
   /* ─── FOOTER ─── */
   footer {
     background: var(--dark);
@@ -724,8 +561,6 @@
     .about-grid { grid-template-columns: 1fr; }
     .about-visual { position: static; }
     .results-section { margin: 0; border-radius: 0; }
-    .blog-feat-card { grid-template-columns: 1fr; }
-    .blog-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; }
     .results-grid { grid-template-columns: 1fr 1fr; }
@@ -752,16 +587,15 @@
   <div class="nav-links" id="navLinks">
     <a href="#" class="nav-btn active" id="nav-home" onclick="showPage('home')">Home</a>
     <a href="#" class="nav-btn" id="nav-services" onclick="showPage('services')">Services</a>
-    <a href="#" class="nav-btn" id="nav-blog" onclick="showPage('blog')">Blog</a>
+    <a href="/blog.html" class="nav-btn" id="nav-blog">Blog</a>
     <a href="https://calendly.com/avivabnt/30min" target="_blank" class="nav-btn nav-cta">Let's Talk</a>
   </div>
   <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
 </nav>
 
-<!-- ═══════════════════════════════════════ HOME PAGE ═══════ -->
+<!-- HOME PAGE -->
 <div class="page active" id="page-home">
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
       <div class="hero-eyebrow">SEO Strategist · Startup Consultant · Worldwide</div>
@@ -809,7 +643,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="section about-grid">
     <div class="about-visual">
       <div class="avatar-ring">
@@ -841,7 +674,6 @@
     </div>
   </section>
 
-  <!-- NUMBERS -->
   <div class="results-section-wrap">
     <div class="results-section" style="max-width:1200px;margin:0 auto;padding:64px;background:#fff;border-radius:24px;">
       <div class="section-eyebrow">Case studies</div>
@@ -876,16 +708,15 @@
     </div>
   </div>
 
-  <!-- CTA -->
   <section class="cta-section">
     <h2>Ready to grow<br>your organic traffic?</h2>
     <p>Let's build your SEO strategy together — from keyword research to top rankings.</p>
     <a class="btn-primary" href="https://calendly.com/avivabnt/30min" target="_blank" style="font-size:1rem;padding:16px 36px;">Book a call →</a>
   </section>
 
-</div><!-- /page-home -->
+</div>
 
-<!-- ═══════════════════════════════════════ SERVICES PAGE ═══════ -->
+<!-- SERVICES PAGE -->
 <div class="page" id="page-services">
 
   <section class="services-hero">
@@ -991,130 +822,14 @@
     <a class="btn-primary" href="https://calendly.com/avivabnt/30min" target="_blank" style="font-size:1rem;padding:16px 36px;">Book a call →</a>
   </section>
 
-</div><!-- /page-services -->
-
-<!-- ═══════════════════════════════════════ BLOG PAGE ═══════ -->
-<div class="page" id="page-blog">
-
-  <section class="blog-hero">
-    <div class="section-eyebrow">Insights &amp; Strategy</div>
-    <h1 class="section-title">The SEO &amp;<br>Startup Blog</h1>
-    <p class="section-sub">Actionable insights on SEO, content marketing, startup strategy, and growing your business online.</p>
-  </section>
-
-  <section class="blog-section">
-    <!-- FEATURED POST -->
-    <div class="blog-featured">
-      <div class="blog-feat-card">
-        <div class="blog-feat-img">📈</div>
-        <div class="blog-feat-content">
-          <div class="tag">SEO Strategy</div>
-          <h2><a href="#" onclick="showPage('single')">How I Grew Organic Traffic by 666% in 6 Months</a></h2>
-          <p>A deep dive into the exact SEO strategy, internal linking architecture, and content approach that took a senior housing platform from 1,550 to 11,800 monthly clicks.</p>
-          <div class="blog-meta">
-            <span>By <strong>Aviva Benitah</strong></span>
-            <span>·</span>
-            <span>8 min read</span>
-            <span>·</span>
-            <span>June 2, 2025</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BLOG GRID -->
-    <div class="blog-grid">
-      <div class="blog-card">
-        <div class="blog-card-img">🚀</div>
-        <div class="blog-card-body">
-          <div class="tag">Startup</div>
-          <h3><a href="#" onclick="showPage('single')">Go-to-Market Strategy for Startups: A Founder's Guide</a></h3>
-          <p>The frameworks and tools I use with every startup client before they launch into a new market.</p>
-          <a class="read-more" href="#" onclick="showPage('single')">Read article →</a>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-card-img">🌍</div>
-        <div class="blog-card-body">
-          <div class="tag">International SEO</div>
-          <h3><a href="#" onclick="showPage('single')">Winning French-Speaking Markets with Multilingual SEO</a></h3>
-          <p>Why hreflang alone isn't enough — and the cultural signals that actually drive rankings in Quebec and France.</p>
-          <a class="read-more" href="#" onclick="showPage('single')">Read article →</a>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-card-img">🔍</div>
-        <div class="blog-card-body">
-          <div class="tag">Content Marketing</div>
-          <h3><a href="#" onclick="showPage('single')">Pillar Pages vs Topic Clusters: What Actually Works in 2025</a></h3>
-          <p>The content architecture strategy behind my fastest-ranking client sites, explained step by step.</p>
-          <a class="read-more" href="#" onclick="showPage('single')">Read article →</a>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:48px;">
-      <a href="https://calendly.com/avivabnt/30min" target="_blank" class="btn-ghost">Want more insights? Let's talk →</a>
-    </div>
-  </section>
-
-  <section class="newsletter-section">
-    <h2>Get SEO insights straight to your inbox</h2>
-    <p>Practical, no-fluff strategies for founders and marketers who want to grow organically.</p>
-    <div class="newsletter-form">
-      <input type="email" placeholder="your@email.com">
-      <button type="button">Subscribe →</button>
-    </div>
-  </section>
-
-</div><!-- /page-blog -->
-
-<!-- ═══════════════════════════════════════ SINGLE POST PAGE ═══════ -->
-<div class="page" id="page-single">
-
-  <article style="max-width:760px;margin:60px auto;padding:0 6%;">
-    <div style="margin-bottom:40px;">
-      <div class="tag" style="font-size:0.7rem;font-weight:700;color:var(--violet);background:var(--violet-light);padding:5px 14px;border-radius:100px;display:inline-block;margin-bottom:20px;letter-spacing:0.06em;text-transform:uppercase;">SEO Strategy</div>
-      <h1 style="font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--dark);line-height:1.15;letter-spacing:-0.03em;margin-bottom:20px;">How I Grew Organic Traffic by 666% in 6 Months</h1>
-      <div style="display:flex;gap:20px;color:var(--text-muted);font-size:0.85rem;margin-bottom:32px;flex-wrap:wrap;">
-        <span>By <strong style="color:var(--violet);">Aviva Benitah</strong></span>
-        <span>·</span>
-        <span>June 2, 2025</span>
-        <span>·</span>
-        <span>8 min read</span>
-      </div>
-      <div style="border-radius:16px;overflow:hidden;margin-bottom:40px;background:linear-gradient(135deg,#EDE9FE,#C4B5FD);height:320px;display:flex;align-items:center;justify-content:center;font-size:5rem;">📈</div>
-    </div>
-    <div class="post-content" style="font-size:1.05rem;line-height:1.85;color:var(--text);">
-      <p>When I took on this senior housing client in Canada, their organic traffic was sitting at a flat 1,550 monthly clicks. Six months later, that number had jumped to 11,800 — a 666% increase. Here's exactly what we did.</p>
-      <h2>The Starting Point: A Technical Audit First</h2>
-      <p>Before writing a single piece of content, I ran a full technical SEO audit. The site had over 1,000 pages, most of which were underperforming due to duplicate title tags, missing meta descriptions, and broken internal links.</p>
-      <h2>Internal Linking Architecture</h2>
-      <p>This was the single biggest lever. The site had a flat structure with almost no intentional internal linking. We built a hub-and-spoke model: category pages linking to location-specific landing pages, which in turn pointed back to the hub.</p>
-      <h2>Content Strategy: Topical Authority Over Volume</h2>
-      <p>Rather than publishing daily, we focused on comprehensive pillar pages around high-intent keywords, then supported each pillar with 8–12 cluster articles targeting long-tail variations.</p>
-      <h2>The Results After 6 Months</h2>
-      <p>Clicks: 1,550 → 11,800 (+666%). Impressions climbed from 180K to over 1.2M. 47 keywords moved into the Top 3 positions on Google Canada.</p>
-    </div>
-    <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
-      <a href="#" onclick="showPage('blog')" class="btn-ghost" style="font-size:0.9rem;">← Back to Blog</a>
-    </div>
-  </article>
-
-  <section class="cta-section" style="margin-top:60px;">
-    <h2>Need an SEO strategy<br>for your business?</h2>
-    <p>Let's talk about your goals and build a plan that delivers results.</p>
-    <a class="btn-primary" href="https://calendly.com/avivabnt/30min" target="_blank" style="font-size:1rem;padding:16px 36px;">Book a free call →</a>
-  </section>
-
-</div><!-- /page-single -->
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Aviva <span>Benitah</span></div>
   <div class="footer-links">
     <a href="#" onclick="showPage('services')">Services</a>
-    <a href="#" onclick="showPage('blog')">Blog</a>
+    <a href="/blog.html">Blog</a>
     <a href="https://www.linkedin.com/in/aviva-benitah/" target="_blank">LinkedIn</a>
     <a href="mailto:avivabenitah@gmail.com">Email</a>
   </div>
@@ -1125,12 +840,10 @@
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
-    // Update nav active states
     document.querySelectorAll('.nav-btn[id^="nav-"]').forEach(b => b.classList.remove('active'));
     const navEl = document.getElementById('nav-' + id);
     if (navEl) navEl.classList.add('active');
     window.scrollTo(0, 0);
-    // Close mobile menu
     document.getElementById('navLinks').classList.remove('open');
     return false;
   }
